@@ -9,6 +9,10 @@ angularRoutingApp.config(function($routeProvider) {
             templateUrl: 'src/views/login.html',
             controller: 'loginController'
         })
+        .when('/timeline', {
+            templateUrl: 'src/views/timeline.html',
+            controller: 'timelineController'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -16,6 +20,8 @@ angularRoutingApp.config(function($routeProvider) {
 
 // Controladores
 angularRoutingApp.controller('loginController', function($scope, $uibModal, $http, $location, $rootScope) {
+    $('body').addClass('body-index');
+
     $scope.submitForm = function() {
         //verficar error
         $scope.error = false;
@@ -33,12 +39,12 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal, $htt
 
         if ($scope.error === true) {
             // abrir el modal
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'src/views/error.html',
-                controller: 'ModalInstanceCtrl',
+                controller: 'modalController',
                 size: 'sm',
                 resolve: {
                     data: function() {
@@ -59,7 +65,8 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal, $htt
                     'Content-type': 'application/json'
                 }
             }).then(function(res) {
-                alert(JSON.stringify(res.data));
+                $rootScope.cid = res.data.cid;
+                $location.path('/timeline');
             }, function(res) {
                 if (res.status === 400) {
                     alert('Verifique su usuario y contraseña')
@@ -74,9 +81,26 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal, $htt
 });
 
 
-angularRoutingApp.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, data) {
+angularRoutingApp.controller('modalController', function($scope, $uibModalInstance, data) {
     $scope.data = data;
     $scope.ok = function() {
         $uibModalInstance.close();
     };
+});
+
+angularRoutingApp.controller('timelineController', function($scope, $http, $rootScope) {
+    $('body').removeClass('body-index');
+
+    $scope.timelines = "";
+
+    $http({
+        url: 'https://prueba-admision-web.herokuapp.com/data?cid=' + $rootScope.cid,
+        method: 'get'
+    }).then(function(res) {
+        $scope.timelines = res.data;
+    }, function(res) {
+        if (res.status === 400) {
+            alert('error timeline')
+        }
+    });
 });
