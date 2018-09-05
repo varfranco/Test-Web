@@ -1,0 +1,32 @@
+body {
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-image: url(/assets/images/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.panel-transparent {
+    background: none;
+}
+
+.panel-transparent .panel-body {
+    background: rgba(255, 255, 255, 0.8)!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #297bba;
+    border-color: #297bba;
+}
+
+.container-fluid-index {
+    padding-left: 0;
+}
+
+.DivCenter {
+    padding-top: 10%;
+}
