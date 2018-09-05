@@ -26,13 +26,13 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal, $htt
         //verficar error
         $scope.error = false;
         $scope.errorData = ""
-        if (angular.isUndefined($scope.userForm.type)) {
+        if (angular.isUndefined($scope.loginForm.type)) {
             $scope.error = true;
             $scope.errorData = "Seleccione un Tipo de Usuario";
-        } else if (angular.isUndefined($scope.userForm.username)) {
+        } else if (angular.isUndefined($scope.loginForm.username)) {
             $scope.error = true;
             $scope.errorData = "Ingrese un Usuario";
-        } else if (angular.isUndefined($scope.userForm.password)) {
+        } else if (angular.isUndefined($scope.loginForm.password)) {
             $scope.error = true;
             $scope.errorData = "Ingrese una Contraseña";
         }
@@ -57,9 +57,9 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal, $htt
                 url: 'https://prueba-admision-web.herokuapp.com/session',
                 method: 'post',
                 data: {
-                    "username": $scope.userForm.username,
-                    "password": $scope.userForm.password,
-                    "type": $scope.userForm.type
+                    "username": $scope.loginForm.username,
+                    "password": $scope.loginForm.password,
+                    "type": $scope.loginForm.type
                 },
                 headers: {
                     'Content-type': 'application/json'
