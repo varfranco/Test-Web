@@ -14,7 +14,8 @@ angularRoutingApp.config(function($routeProvider) {
         });
 });
 
-angularRoutingApp.controller('loginController', function($scope, $uibModal) {
+// Controladores
+angularRoutingApp.controller('loginController', function($scope, $uibModal, $http, $location, $rootScope) {
     $scope.submitForm = function() {
         //verficar error
         $scope.error = false;
@@ -31,7 +32,7 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal) {
         }
 
         if ($scope.error === true) {
-            // open the modal
+            // abrir el modal
             var modalInstance = $uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
@@ -43,6 +44,25 @@ angularRoutingApp.controller('loginController', function($scope, $uibModal) {
                     data: function() {
                         return $scope.errorData;
                     }
+                }
+            });
+        } else {
+            $http({
+                url: 'https://prueba-admision-web.herokuapp.com/session',
+                method: 'post',
+                data: {
+                    "username": $scope.userForm.username,
+                    "password": $scope.userForm.password,
+                    "type": $scope.userForm.type
+                },
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            }).then(function(res) {
+                alert(JSON.stringify(res.data));
+            }, function(res) {
+                if (res.status === 400) {
+                    alert('Verifique su usuario y contraseña')
                 }
             });
         }
