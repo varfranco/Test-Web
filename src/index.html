@@ -1,9 +1,99 @@
 <html>
   <head>
     <script src="//localhost:35729/livereload.js"></script>
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+    <script src="src/js/bootstrap.min.js"></script>
+
+
+
+    <!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
+
+<!--
+    RTL version
+-->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.rtl.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/default.rtl.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/semantic.rtl.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.rtl.min.css"/>
   </head>
-  <body>
-    <h1> Grunt is running! </h1>
-    <h2> :) </h2>
-  </body>
+
+<body>
+
+<form id="admision" action="" method="get" onsubmit="return validar(this)" ng-controller="session">
+ <div class="container">
+  <h1>Inicio Session</h1>
+     <div class="Selected">
+       <select>
+        <option value="">Seleccione...</option>
+        <option value="V">V</option>
+        <option value="E">E</option>
+        <option value="P">P</option>
+       </select>
+     </div>
+     <div class="user">
+       <input type="text" placeholder="Usuario" autocomplete="off" id="user" >
+       <input type="password" placeholder="Password" autocomplete="off" id="password">
+    </div>
+    <a href="javascript:Recovery();">¿Olvido su Contraseña?</a>
+
+<input type="submit" id="btn" value="Aceptar">
+</div>
+
+
+<div class="synergy">SYNERGY-GB</div>
+</form>
+
+</body>
+
+<script>
+
+
+function validar(f) {
+  var ok = true;
+
+  if(f.elements[0].value == "")
+  {
+    alertify.alert('Insertar Campos Requeridos Por Favor')
+    ;ok = false;
+  }
+
+  if(f.elements["user"].value == "")
+  {
+  alertify.alert('Insertar Usuario Por Favor')
+  ;ok = false;
+  }
+
+  if(f.password.value == "")
+  {
+    alertify.alert('Insertar Contraseña Por Favor');
+    ok = false;
+  }
+
+
+  return ok;
+}
+
+
+
+function Recovery()
+{
+  alertify.alert('Recuperar Contraseña');
+}
+
+</script>
+
 </html>

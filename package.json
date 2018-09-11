@@ -20,5 +20,9 @@
     "grunt": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "alertifyjs": "^1.11.1",
+    "bootbox": "^4.4.0"
   }
 }
