@@ -1,0 +1,66 @@
+    *,p,h1,h2,h3,h4,h5,h6{border:0;margin:10px;padding:0;}
+   html, body{
+        height:100%;
+    }
+    body {
+        background-color: #444;
+       background-image:url('../assets/images/background.jpg');
+      /* background: #000;*/
+        background-position: 50% 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family:'gotham-book';
+    }
+
+h1{
+    color: rgb(22, 105, 178);
+    font-weight: bold;
+    font-size: 80px;
+    padding-top: 25px;
+}
+h3{
+    color: rgb(66, 73, 73);
+    font-weight: bold;
+}
+ .titulo{
+    margin-top: 80px;
+ }
+  .form-signin input[type="text"] {
+         margin-top: 5px;
+        margin-bottom: 3px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+		border-color: #c1e2ec;
+    }
+    .form-signin input[type="password"] {
+        margin-top: 1px;
+        margin-bottom: 1px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+		border-color: #c1e2ec;
+    }
+   .form-signin .form-control {
+       margin:0px 0px 0px 0px;
+        font-size: 12px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        height: auto;
+        padding: 10px;
+        color:#999999;
+    
+    }
+	
+	#caja{
+	background-color: #FFFFFF;
+	width: 400px;
+    height: 350px;
+	margin: 50px 10px 10px 50px
+	
+}
+.form-control {
+	border-radius: 5px;
+	border-color: #c1e2ec;
+	margin-bottom: 0px
+
+}
+
+

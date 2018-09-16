@@ -1,0 +1,24 @@
+<div class="row" ng-controller="timeline">
+    <div class="col-xs-12">
+        <div class="panel1 panel1-default">
+            <table id="table" class="table table-bordered table-striped table-hover" >
+              <thead>
+                  <tr style="text-align: center;">
+                      <th>id</th>
+                      <th>title</th>
+                      <th>url</th>
+                      <th>thumbnailUrl</th>
+                    </tr>
+              </thead>
+            <tbody>
+                  <tr ng-repeat="d in data">
+                      <td>{{d.id}}</td>
+                      <td>{{d.title}}</td>
+                      <td>{{d.url}}</td>
+                      <td>{{d.thumbnailUrl}} </td>
+                  </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>

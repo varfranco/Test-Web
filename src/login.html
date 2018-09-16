@@ -1,0 +1,45 @@
+<html>
+  <head>
+
+    <script src="//localhost:35729/livereload.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="../css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="../css/login.css" rel="stylesheet" id="bootstrap-css">
+	<link href="../css/sweetalert.css" rel="stylesheet">
+    <script src="//localhost:35729/livereload.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  </head>
+<body background="../assets/images/background.jpg">
+
+<div id='caja' style="background-color: rgba(255,255,255,0.8)";>
+<H3>Inicio de Sesion</h3><BR>
+<form  class="form-signin" role="form" ng-controller="login" ng-submit="submit()" >
+<div  align="right" >
+
+<select name="Tipo" class="form-control" ng-model="type" id="type" name="type">
+   <option value="">Seleccione...</option> 
+   <option value="V">V</option> 
+   <option value="E">E</option>
+   <option value="P">P</option> 
+</div>
+</select>
+
+  <div class="form-signin" align="left">
+    <label for="usuario"></label>
+    <input type="text" class="form-control" id="usuario"  placeholder="Usuario" ng-model="usuario"  required>
+  </div>
+  
+  <div  class="form-signin" align="left">
+    <label for="pwd"></label>
+    <input type="password" class="form-control" id="pwd"  placeholder="Contraseña" ng-model="password" required>
+	
+  </div>
+
+  <div class="form-signin" align="left">
+  <a href="#" onclick="alert('Recuperar contraseña')"><i>¿Olvidó su Contraseña?<i></a>
+  </div>
+  
+</form>
+    <center><button type="submit" class="btn btn-primary">Aceptar</button></center>
+</html>
