@@ -1,0 +1,17 @@
+<div id="timeline-component" ng-controller="timeline-controller">
+      <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">
+         <img src=assets/images/logo.png width="250" height="30" alt="">
+         </a>
+      </nav>
+
+      <div id ="card" class="card text-white bg-dark mb-3" ng-repeat="dato in datos">
+        <img class="card-img-top" src="{{dato.thumbnailUrl}}" alt="error">
+        <div class="card-block">
+          <div class="card-body">
+            <h4 class="card-title">{{dato.title}}</h4>
+            <a href="{{dato.url}}" class="btn btn-primary" target="_blank">Pantalla completa</a>
+          </div>
+        </div>
+      </div>   
+</div>		

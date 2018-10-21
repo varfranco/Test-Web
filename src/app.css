@@ -1,0 +1,74 @@
+body ,html {
+    height: 100%; 
+}
+
+#general{
+	background-image: url(../assets/images/background.jpg);
+	background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+#login-component{
+	float: left;
+	margin-top: 200px;
+	margin-left: 20px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    background: rgba(236,229,223, 0.8);
+    border-style: none;
+
+}
+
+#card{
+	background: white;
+	width: 18rem;
+	display: inline-flex;
+	padding-right: 5px; 
+	float: none;
+
+}
+
+#tipo{
+	width: 30%;
+	float: right;
+	opacity: 1;
+	margin-bottom: 5px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	border-color: lightblue;
+}
+
+#inicio{
+	text-align: justify;
+}
+
+#usuario{
+	margin-top: 5px;
+	border-color: lightblue;
+}
+
+#password{
+	margin-top: 5px;
+	border-color: lightblue;
+}
+
+
+#button-login{
+	margin-bottom: 5px;
+}
+
+#timeline-component{
+	align-self: center;
+	background: none;
+	background-color: lightblue;
+}
+
+#logo{
+	position:fixed;
+    right:10px;
+    bottom: 1px 
+}
