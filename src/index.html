@@ -1,9 +1,136 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist\bootstrap\css\bootstrap.min.css">
+    <link rel="stylesheet" href="dist\Generales\css\login.css">
+    <link rel="stylesheet" href="dist\sweetalert\css\sweetalert.css">
+    <link rel="stylesheet" href="dist\bootstrap-select\css\bootstrap-select.min.css">
+    <link rel="shortcut icon" href="#" />
+  
     <script src="//localhost:35729/livereload.js"></script>
   </head>
-  <body>
-    <h1> Grunt is running! </h1>
-    <h2> :) </h2>
+  <body background="assets\images\background.jpg" class="fondo">
+    <div class="container">
+        <div class="row filaLogin ">
+            <div class="col-xs-4 col-sm-4 col-md-4 login">
+                <div class="col-xs-12 col-sm-12 col-md-12 titulo" align = "left">
+                      <h4 >Inicio de Sesión</h4>
+                </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" align = "right">
+                        <select class="selectpicker" data-width="fit" id="select">
+                            <option value = 0>Seleccione ...</option>
+                            <option value = V>V</option>
+                            <option value = E>E</option>
+                            <option value = P>P</option>
+                          </select>                      
+                      </div>
+                 <br> 
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <input type="email" class="form-control credenciales" placeholder="Usuario" required id="usuario">
+                </div>
+                <br>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <input type="password" class="form-control credenciales" placeholder="Contraseña" required id="contrasena">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <a href="#" id= "olvidoContrasena"> <i> ¿Olvidó su contraseña? </i></a>
+                </div>
+                 <br>  
+                <div class="col-xs-12 col-sm-12 col-md-12" align = "center">
+                   <button type="submit" class="btn btn-primary form-group login-form" id="login">Aceptar</button>
+                </div> 
+            </div>
+        </div>
+        <div id="footer">
+          <img src="assets\images\bysynergygb.png"  align = "right" class="text1">
+            
+        </div>
+
+
+    </div>
+
+
+    <script src="dist\popper\js\popper.js"></script>
+    <script src="dist\jquery\js\jquery-3.3.1.min.js"></script>
+    <script src="dist\bootstrap\js\bootstrap.min.js"></script>
+    <script src="dist\sweetalert\js\sweetalert.min.js"></script>
+    <script src="dist\bootstrap-select\js\bootstrap-select.min.js"></script>
+
+    <script>
+          
+      $(document).ready(function(){
+
+        $('.selectpicker').selectpicker();
+      });
+
+      olvidoContrasena();
+
+      validaciones();
+    
+    function olvidoContrasena() {  
+      $("#olvidoContrasena").click(function () {      
+        alert("Recuperar contraseña");
+      });
+    }
+
+    function validaciones() {
+      $("#login").click(function () {
+
+        if ($('#select').val() == 0) {
+          swal("Atención", "Ingrese el Tipo de Documento!", "warning");
+
+        } else if ($('#usuario').val() === ''){
+          swal("Atención", "Ingrese Usuario!", "warning");
+
+        } else if ($('#contrasena').val() === ''){
+          swal("Atención", "Ingrese Contraseña!", "warning");
+
+        }else{
+          metodosGetPost();
+        }
+      });     
+    }
+
+    function metodosGetPost() {
+          var cid;
+          var respuesta;
+          var url = "https://prueba-admision-web.herokuapp.com/session"; 
+          var url2 = "https://prueba-admision-web.herokuapp.com/data"; 
+          var url3;
+          var data = {"username" : $('#usuario').val(), "password": $('#contrasena').val(),"type": $('#select').val()};
+
+            $.post(url,data).fail(
+              function(resp){
+                console.log(resp);
+                console.log(data);
+              }).done(function(resp, estado,jqXHR){
+                console.log(data);
+                console.log(resp);
+
+                cid = resp.cid;
+                respuesta = resp.status;
+                console.log (cid);
+                console.log (respuesta);
+                url3 = url2 + '?cid=' + cid;
+                console.log (url3);
+
+                $.get(url3,function(data1){
+                  debugger
+                  console.log(data1);
+                  console.log(data1[0].title);
+                  if (respuesta == 'ok') {
+                    location.href= "http://localhost:9000/src/timeline.html"; 
+                  }
+                
+                });
+
+              }); 
+
+    }
+
+      </script> 
   </body>
+  
 </html>

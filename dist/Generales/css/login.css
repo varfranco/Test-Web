@@ -1,0 +1,92 @@
+body, html {
+    height: 100%;
+  }
+
+.decolorado {
+    
+    background-color: rgb(255, 255, 255); opacity: 0.5;
+    background-color: rgb(255, 255, 255); opacity: 0.5;
+    top: 30%;
+    
+  }
+
+  .fondo {
+    /* The image used */
+    /* background-image: url("assets\images\background.jpg"); */
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .forgot {
+    text-align: left;
+  }
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: 20px;
+    padding: 20px;
+    
+  }
+  
+  .btn-light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #97cbff;
+}
+
+.credenciales {
+    border: 2px solid #97cbff;
+}
+  #login{ text-align:center;}
+ 
+.text1{
+    top: 10%;
+    float: right;
+}
+
+.login {
+    position: relative;
+    height: 53%;
+    top: 100%;
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgba(182, 181, 181, 0.6) 100%);
+    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+    transform: scale(1);
+    margin-left: 0%;
+
+}
+html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    font-family:sans-serif;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  footer {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    
+  }
+
+  .filaLogin{ 
+    padding-top: 13%;
+  }
+
+  .titulo{ 
+    color: #616365;
+    margin-top: 3%;
+
+  }
+  #footer{
+    clear:both;
+    }
+  
