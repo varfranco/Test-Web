@@ -9,10 +9,10 @@ var $msgModal = $('#msgModal').modal({backdrop : false, show : false, keyboard :
   },
   headers = ["OMG!!", "WAT", "Alert", "Random Notice"],
   bodies = [
-    "Yep...",
-    "You're not supposed to do that!",
-    "It's over 9000!!!",
-    "We're doing it live!"
+    "Usted olvido su contraseña",
+    "Usted olvido su contraseña, una vez más!",
+    "Es seguro que usted olvido su contraseña!!!!",
+    "No lo intentes más, La Olvidaste !"
   ];
   
 $('#modalPopper').click(function (e) {
