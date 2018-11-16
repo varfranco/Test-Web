@@ -4,9 +4,9 @@
     
     <!-- bootstrap css -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 
   <!-- Le styles -->
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
@@ -22,22 +22,21 @@
       }
   </style>
 </head>
+<form method="POST" action="login-form" class="form-horizontal" id="login-form">
 <body>
   <div class="bg">
     <div class="card mt-5" style="float:left; margin: 5px 20px 0 20px;margin:left;width: 370px;top:22%;filter:alpha(opacity=80);-moz-opacity:.80;opacity:.80">
       <div class="card-body">
         <h5 class="card-title">Inicio de sesión</h5>
         <div class="form-group">
-          <div ng-repeat="dropDown in comboBox track by $index">
-            <select ng-model="valueSelected" ng-change="changedValue(valueSelected)" required>
-                <optgroup>
-                    <option value="">Seleccione</option>
-                    <option value="V"> V </option>
-                    <option value="E"> E </option>
-                    <option value="P"> P </option>
-                </optgroup>
-            </select>
-          </div>
+            <div class="form-group">
+                <select id="subject" name="subject" required>
+                    <option value="" selected="">Seleccione</option>
+                    <option value="service">V</option>
+                    <option value="suggestions">E</option>
+                    <option value="support">P</option>
+                </select>
+            </div>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" id="email" placeholder="Usuario" [(ngModel)]="email" required>
@@ -73,4 +72,5 @@
     <script src="/assets/js/script.js"></script>
 
 </body>
+</form>
 </html>
