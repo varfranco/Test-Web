@@ -5,7 +5,6 @@ import { LoginResultModel } from '../model/LoginResultModel'
 import { User } from '../model/user'
 import { Headers, RequestOptions } from '@angular/http';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import './rxjs/index';
 
 @Injectable()
 export class TestWeb {

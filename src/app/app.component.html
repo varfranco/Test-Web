@@ -1,0 +1,38 @@
+<div class="bg">
+  <div class="card mt-5" style="float:left; margin: 5px 20px 0 20px;margin:left;width: 370px;top:22%;filter:alpha(opacity=80);-moz-opacity:.80;opacity:.80">
+    <div class="card-body">
+      <h5 class="card-title">Inicio de sesión</h5>
+      <div class="form-group">
+          <div class="form-group">
+              <select id="type" name="type" required>
+                  <option value="" selected="">Seleccione</option>
+                  <option value="V">V</option>
+                  <option value="E">E</option>
+                  <option value="P">P</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="username" placeholder="Usuario" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="password" required>
+      </div>
+      <div class="form-group">
+  <a id="modalPopper" href="#" class="link"><em>¿Olvido su contraseña?</em></a>
+<div id="msgModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3></h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary callback-btn" data-dismiss="modal">Cerrar</button>
+  </div>
+</div>
+
+  </div>
+        <button type="submit" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
+  </div>
+</div>
