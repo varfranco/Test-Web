@@ -22,7 +22,7 @@
       }
   </style>
 </head>
-<form method="POST" action="login-form" class="form-horizontal" id="login-form">
+<form ng-submit="save($element.action)">
 <body>
   <div class="bg">
     <div class="card mt-5" style="float:left; margin: 5px 20px 0 20px;margin:left;width: 370px;top:22%;filter:alpha(opacity=80);-moz-opacity:.80;opacity:.80">
@@ -30,16 +30,16 @@
         <h5 class="card-title">Inicio de sesión</h5>
         <div class="form-group">
             <div class="form-group">
-                <select id="subject" name="subject" required>
+                <select id="type" name="type" required>
                     <option value="" selected="">Seleccione</option>
-                    <option value="service">V</option>
-                    <option value="suggestions">E</option>
-                    <option value="support">P</option>
+                    <option value="V">V</option>
+                    <option value="E">E</option>
+                    <option value="P">P</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="email" placeholder="Usuario" [(ngModel)]="email" required>
+          <input type="text" class="form-control" id="username" placeholder="Usuario" [(ngModel)]="username" required>
         </div>
         <div class="form-group">
           <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="password" required>
@@ -58,11 +58,10 @@
     </div>
   </div>
   
-      </div>
+    </div>
           <button type="submit" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
     </div>
 </div>
-
 
  <!-- Le javascript
     ================================================== -->
