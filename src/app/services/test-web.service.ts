@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable, Subject } from 'rxjs';
+//import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { LoginResultModel } from '../model/LoginResultModel'
 import { User } from '../model/user'
 import { Headers, RequestOptions } from '@angular/http';
@@ -11,9 +12,6 @@ export class TestWeb {
 
     private api = 'https://prueba-admision-web.herokuapp.com/session';     
     
-    username = 'usuario';
-    password = 'password';
-
     constructor(private http: Http) {}
 
     private extractData(res: Response) {
@@ -29,12 +27,12 @@ export class TestWeb {
         return Promise.reject(error.message || error);
     }	
 
-    login(username: String, password: String): Observable<LoginResultModel>{
+    public login(user: User): Observable<LoginResultModel>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });        
-        let jsonResult = this.http.post(this.api, User, options)
+        alert("User: " + user.GetUserName);
+        let jsonResult = this.http.post(this.api, user, options)
             .pipe(map(res => res.json()));
-        
             console.log(jsonResult);
             return jsonResult;
     }   
