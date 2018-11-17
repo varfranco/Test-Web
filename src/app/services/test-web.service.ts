@@ -30,7 +30,7 @@ export class TestWeb {
     public login(user: User): Observable<LoginResultModel>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });        
-        alert("User: " + user.GetUserName);
+
         let jsonResult = this.http.post(this.api, user, options)
             .pipe(map(res => res.json()));
             console.log(jsonResult);
