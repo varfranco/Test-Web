@@ -12,14 +12,27 @@ export class AppComponent {
   title = 'app';
 
   constructor(private api: TestWeb, private router: Router) {
-  }
-
-  public tryLogin() {
-    //var user = new User();
-    //user.fillFromJSON('{"username": "synergy", "password": "synergy123", "type": "V"}');  
-
-    let user: User;
     
-    this.api.login(user);
   }
+
+  public tryLogin(): void {
+
+    let user = new User();
+    user.username = 'synergy';
+    user.password = 'synergy123';
+    user.type = 'V';
+
+    this.api.login(user).subscribe(
+        (result) => {
+            // This code will be executed when the HTTP call returns successfully
+            alert("status: " + result.status + " Cid: " + result.cid);
+            return result;
+        },
+        (error) => {
+            alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
+            console.log(error);
+        }
+    );
+  }
+  
 }

@@ -33,7 +33,7 @@ export class TestWeb {
 
         let jsonResult = this.http.post(this.api, user, options)
             .pipe(map(res => res.json()));
-            console.log(jsonResult);
+            console.log(JSON.stringify(jsonResult));
             return jsonResult;
     }   
 
