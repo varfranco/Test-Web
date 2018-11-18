@@ -6,4 +6,12 @@ export class TimeLine {
   public title: string;
   public url: string;
   public thumbnailUrl: string;
+
+  constructor()
+  {
+      this.id = 0;
+      this.title = '';
+      this.url = '';
+      this.thumbnailUrl = '';
+  }
 }

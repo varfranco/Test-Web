@@ -12,8 +12,6 @@ export class TestWeb{
 
     private postUrl = 'https://prueba-admision-web.herokuapp.com/session';   // URL to post
     private getUrl = 'https://prueba-admision-web.herokuapp.com/data';  // URL to get
-    //private getUrl = 'https://prueba-admision-web.herokuapp.com/data?cid=2kj34h345';  // URL to get
-    private cid: string;
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });        
 
@@ -37,34 +35,11 @@ export class TestWeb{
             .pipe(map(res => this.extractData(res)));
             return jsonResult;
     }
-
-    getTimeLine (cid: string): Observable<TimeLine[]> {
-        //let timeLine =  this.http.get(this.getUrl + '?cid=${cid}')
-        let timeLine =  this.http.get(this.getUrl + '?cid=k6lj87hj8')
-        .pipe(
-            map(res => this.extractData(res)))
-            catchError(this.handleErrorObservable.bind('getTimeLine', []));
-            alert(this.getUrl + '?cid=k6lj87hj8');
-            alert(JSON.stringify(timeLine));
-            return timeLine;            
+    
+    public getTimeLine (cid: string): Observable<TimeLine[]> {
+        let timeLine = this.http.get(this.getUrl + '?cid=' + cid, this.options)
+        .pipe(map((response:Response) => this.extractData(response)));
+        return timeLine;            
     }
-
-    /*
-    public getTimeLine(cid: string) {
-        let apiURL = this.getUrl + '?cid=${cid}'; 
-        alert(apiURL);
-        return this.http.request(this.getUrl)  
-        .map(res => {
-          return res.json().results.map(item => {
-            return new TimeLine[item](
-                item.id,
-                item.url,
-                item.url,
-                item.thumbnailUrl
-            );
-          });
-        });        
-      }
-      */
-
+    
 }

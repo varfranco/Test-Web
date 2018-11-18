@@ -3,7 +3,6 @@ import {TestWeb} from './services/test-web.service';
 import {Router} from '@angular/router';
 import { User } from './model/user'
 import { TimeLine } from './model/timeLine'
-import { LoginResultModel } from './model/loginResultModel'
 
 @Component({
   selector: 'app-root',
@@ -16,12 +15,8 @@ export class AppComponent {
   
   public status: string;
   public cid: string;
+  public time: TimeLine[];
   
-  public id: number;
-  public titleData: string;
-  public url: string;
-  public thumbnailUrl: string;
-
   // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
     public cidDummy = 'k6lj87hj8';
   // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
@@ -33,7 +28,6 @@ export class AppComponent {
   public tryLogin(): void {
 
     let user = new User();
-    let timeLine = new TimeLine();
 
     // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
     user.username = 'synergy';
@@ -45,7 +39,6 @@ export class AppComponent {
         (loginResult) => {
             this.status = loginResult.status;
             this.cid = loginResult.cid;            
-            //this.router.navigateByUrl('/ResComponent');
         },
         (error) => {
             console.log(error);
@@ -54,17 +47,16 @@ export class AppComponent {
     );
 
     this.api.getTimeLine(this.cidDummy).subscribe(
-      (res) => {
-          this.id = timeLine.id;
-          this.titleData = timeLine.title;
-          this.url = timeLine.url;
-          this.thumbnailUrl = timeLine.thumbnailUrl;
-      },
-      (error) => {
-          console.log(error);
-          return error;
-      }
-    );    
-
+              time => {
+                  this.time = time;
+                  //alert('this.users=' + this.time);
+                  //alert('this.users.length=' + this.time.length);
+                  //alert('this.users[0].firstName=' + this.time[0].id);
+              }, //Bind to view
+                          err => {
+                      // Log errors if any
+                      console.log(err);
+                  });
   }
+
 }

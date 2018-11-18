@@ -38,7 +38,7 @@
   <!-- Show Result -->
   <div *ngIf="status">
     <div class="card-body">
-      <h1>************* RESULTADOS ***************</h1>    
+      <h1>************* RESULTADOS POST ***************</h1>    
         <table  class="table">
           <tr>
               <th>Operation</th>
@@ -51,7 +51,7 @@
               <td>{{cid}}</td>
           </tr>
       </table>
-
+      <h1>************* RESULTADOS GET ***************</h1>    
       <table  class="table">
           <tr>
               <th>Operation</th>
@@ -60,12 +60,12 @@
               <th>url</th>
               <th>thumbnailUrl</th>
           </tr>
-          <tr>
+          <tr *ngFor="let t of time">
               <td>GET</td>
-              <td>{{id}}</td>
-              <td>{{titleData}}</td>
-              <td>{{url}}</td>
-              <td>{{thumbnailUrl}}</td>
+              <td>{{t.id}}</td>
+              <td>{{t.title}}</td>
+              <td>{{t.url}}</td>
+              <td>{{t.thumbnailUrl}}</td>
           </tr>
       </table>
     </div>
