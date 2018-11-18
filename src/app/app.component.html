@@ -16,7 +16,7 @@
         <input type="text" class="form-control" id="username" placeholder="Usuario" [(ngModel)]="username" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="password"  required>
+        <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="password"  required #myControl="ngModel">
       </div>
       <div class="form-group">
         <a id="modalPopper" href="#" class="link"><em>¿Olvido su contraseña?</em></a>   
@@ -32,7 +32,7 @@
       </div>
 </div>
   </div>
-        <button type="submit" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
+        <button type="submit" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
   </div>
 
   <!-- Show Result -->

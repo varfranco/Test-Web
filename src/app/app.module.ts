@@ -12,7 +12,8 @@ import {APP_BASE_HREF} from '@angular/common';
 const appRoutes: Routes = [
   { path: 'TestWeb', component: TestWeb },
   { path: 'AppComponent', component: AppComponent },
-  { path: 'tryLogin', component: AppComponent }
+  { path: 'tryLogin', component: AppComponent },
+  { path: 'ResComponent', component: ResComponent }
 ];
 
 @NgModule({

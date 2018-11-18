@@ -28,8 +28,8 @@ export class AppComponent {
     this.api.login(user).subscribe(
         (loginResult) => {
             // This code will be executed when the HTTP call returns successfully
-            alert("status: " + loginResult.status + " Cid: " + loginResult.cid);            
-            return loginResult;
+            alert("status: " + loginResult.status + " Cid: " + loginResult.cid);  
+            this.router.navigateByUrl('/ResComponent');
         },
         (error) => {
             alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
