@@ -1,0 +1,84 @@
+{
+	"id": "1583e841-d75f-7cb4-85cb-95570126a923",
+	"name": "Admision",
+	"description": "",
+	"order": [
+		"20e1ec2e-822e-74f0-fbd1-7e63fce9a5db",
+		"c89fffe9-c280-76c2-d536-8b946ff13e46"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1542243849549,
+	"owner": "2986849",
+	"public": false,
+	"requests": [
+		{
+			"id": "20e1ec2e-822e-74f0-fbd1-7e63fce9a5db",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://prueba-admision-web.herokuapp.com/data?cid=k6lj87hj8",
+			"queryParams": [
+				{
+					"key": "cid",
+					"value": "k6lj87hj8",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542573062555,
+			"name": "GET Admision",
+			"description": "",
+			"collectionId": "1583e841-d75f-7cb4-85cb-95570126a923",
+			"responses": [],
+			"rawModeData": "{\n    \"nombre\": \"Jose\",\n    \"apellido\": \"Palacios\",\n    \"correo\": \"cervecera.artesanal@gmail.com\"\n}"
+		},
+		{
+			"id": "c89fffe9-c280-76c2-d536-8b946ff13e46",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://prueba-admision-web.herokuapp.com/session",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542573052381,
+			"name": "POST Remote Service",
+			"description": "",
+			"collectionId": "1583e841-d75f-7cb4-85cb-95570126a923",
+			"responses": [],
+			"rawModeData": "{\n    \"username\": \"synergy\",\n    \"password\": \"synergy123\",\n    \"type\": \"V\"\n}"
+		}
+	]
+}

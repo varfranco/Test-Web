@@ -39,12 +39,13 @@ export class TestWeb{
     }
 
     getTimeLine (cid: string): Observable<TimeLine[]> {
-        alert("cid: " + cid);
-        let timeLine =  this.http.get(this.getUrl)
+        //let timeLine =  this.http.get(this.getUrl + '?cid=${cid}')
+        let timeLine =  this.http.get(this.getUrl + '?cid=k6lj87hj8')
         .pipe(
             map(res => this.extractData(res)))
             catchError(this.handleErrorObservable.bind('getTimeLine', []));
-            alert("tamaño timeLine: " + JSON.stringify(timeLine).length);            
+            alert(this.getUrl + '?cid=k6lj87hj8');
+            alert(JSON.stringify(timeLine));
             return timeLine;            
     }
 

@@ -36,20 +36,38 @@
   </div>
 
   <!-- Show Result -->
-  <!--<div *ngIf="status"> -->
-    <h1>************* RESULTADO ***************</h1>    
-      <table  class="table">
-        <tr>
-            <th>Operation POST</th>
-            <th>Status </th>
-            <th>Cid</th>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>{{status}}</td>
-            <td>{{cid}}</td>
-        </tr>
-    </table>
-  <!--</div> -->
+  <div *ngIf="status">
+    <div class="card-body">
+      <h1>************* RESULTADOS ***************</h1>    
+        <table  class="table">
+          <tr>
+              <th>Operation</th>
+              <th>Status </th>
+              <th>Cid</th>
+          </tr>
+          <tr>
+              <td>POST</td>
+              <td>{{status}}</td>
+              <td>{{cid}}</td>
+          </tr>
+      </table>
 
-</div>
+      <table  class="table">
+          <tr>
+              <th>Operation</th>
+              <th>id </th>
+              <th>title</th>
+              <th>url</th>
+              <th>thumbnailUrl</th>
+          </tr>
+          <tr>
+              <td>GET</td>
+              <td>{{id}}</td>
+              <td>{{titleData}}</td>
+              <td>{{url}}</td>
+              <td>{{thumbnailUrl}}</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+<div>

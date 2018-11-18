@@ -13,12 +13,17 @@ import { LoginResultModel } from './model/loginResultModel'
 
 export class AppComponent {
   public title = 'app';
+  
   public status: string;
   public cid: string;
-  public time:TimeLine[];
+  
+  public id: number;
+  public titleData: string;
+  public url: string;
+  public thumbnailUrl: string;
 
   // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
-    public cidDummy = '2kj34h345';
+    public cidDummy = 'k6lj87hj8';
   // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
 
 
@@ -39,23 +44,23 @@ export class AppComponent {
     this.api.login(user).subscribe(
         (loginResult) => {
             this.status = loginResult.status;
-            this.cid = loginResult.cid;
-            
+            this.cid = loginResult.cid;            
             //this.router.navigateByUrl('/ResComponent');
         },
         (error) => {
-            alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
             console.log(error);
             return error;
         }
     );
 
     this.api.getTimeLine(this.cidDummy).subscribe(
-      (timeLine) => {
-          this.cid = this.cidDummy;
+      (res) => {
+          this.id = timeLine.id;
+          this.titleData = timeLine.title;
+          this.url = timeLine.url;
+          this.thumbnailUrl = timeLine.thumbnailUrl;
       },
       (error) => {
-          alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
           console.log(error);
           return error;
       }
