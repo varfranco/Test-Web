@@ -32,13 +32,24 @@
       </div>
 </div>
   </div>
-        <button type="submit" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
+        <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
   </div>
 
   <!-- Show Result -->
-  <div *ngIf="status">
-      <h1>************* RESULTADO ***************</h1>    
-      <app-res></app-res>
-  </div>
+  <!--<div *ngIf="status"> -->
+    <h1>************* RESULTADO ***************</h1>    
+      <table  class="table">
+        <tr>
+            <th>Operation POST</th>
+            <th>Status </th>
+            <th>Cid</th>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>{{status}}</td>
+            <td>{{cid}}</td>
+        </tr>
+    </table>
+  <!--</div> -->
 
 </div>

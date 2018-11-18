@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {TestWeb} from './services/test-web.service';
 import {Router} from '@angular/router';
 import { User } from './model/user'
+import { TimeLine } from './model/timeLine'
 import { LoginResultModel } from './model/loginResultModel'
 
 @Component({
@@ -11,13 +12,23 @@ import { LoginResultModel } from './model/loginResultModel'
 })
 
 export class AppComponent {
-  title = 'app';
+  public title = 'app';
+  public status: string;
+  public cid: string;
+  public time:TimeLine[];
 
-  constructor(private api: TestWeb, private router: Router) { }
+  // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
+    public cidDummy = '2kj34h345';
+  // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
+
+
+  constructor(private api: TestWeb, private router: Router) { 
+   }
 
   public tryLogin(): void {
 
     let user = new User();
+    let timeLine = new TimeLine();
 
     // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
     user.username = 'synergy';
@@ -27,9 +38,10 @@ export class AppComponent {
 
     this.api.login(user).subscribe(
         (loginResult) => {
-            // This code will be executed when the HTTP call returns successfully
-            alert("status: " + loginResult.status + " Cid: " + loginResult.cid);  
-            this.router.navigateByUrl('/ResComponent');
+            this.status = loginResult.status;
+            this.cid = loginResult.cid;
+            
+            //this.router.navigateByUrl('/ResComponent');
         },
         (error) => {
             alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
@@ -37,6 +49,17 @@ export class AppComponent {
             return error;
         }
     );
+
+    this.api.getTimeLine(this.cidDummy).subscribe(
+      (timeLine) => {
+          this.cid = this.cidDummy;
+      },
+      (error) => {
+          alert("Error =  Status: " + error.status + " Texto: " + error.statusText);
+          console.log(error);
+          return error;
+      }
+    );    
+
   }
-  
 }
