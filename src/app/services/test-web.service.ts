@@ -8,7 +8,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 @Injectable()
-export class TestWeb {
+export class TestWeb{
 
     private api = 'https://prueba-admision-web.herokuapp.com/session';     
     
@@ -32,8 +32,7 @@ export class TestWeb {
         let options = new RequestOptions({ headers: headers });        
 
         let jsonResult = this.http.post(this.api, user, options)
-            .pipe(map(res => res.json()));
-            console.log(JSON.stringify(jsonResult));
+            .pipe(map(res => this.extractData(res)));
             return jsonResult;
     }   
 

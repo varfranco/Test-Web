@@ -34,4 +34,11 @@
   </div>
         <button type="submit" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
   </div>
+
+  <!-- Show Result -->
+  <div *ngIf="status">
+      <h1>************* RESULTADO ***************</h1>    
+      <app-res></app-res>
+  </div>
+
 </div>
