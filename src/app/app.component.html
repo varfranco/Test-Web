@@ -33,8 +33,12 @@
       </div>
   </div>
   </div>
-        <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin(username, password, selectedType)">Aceptar</button>
+  <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin(username, password, selectedType)">Aceptar</button>
   </div>
+
+</div>
+</div>
+<div>
 
   <!-- Show Result -->
     <div *ngIf="status">
@@ -75,7 +79,3 @@
                   <td>{{t.thumbnailUrl}}</td>
               </tr>
           </table>
-
-</div>
-</div>
-<div>
