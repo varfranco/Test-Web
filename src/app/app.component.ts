@@ -12,28 +12,30 @@ import { TimeLine } from './model/timeLine'
 
 export class AppComponent {
   public title = 'app';
+  public selectedType: string = '';
   
   public status: string;
   public cid: string;
   public time: TimeLine[];
   
-  // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
-    public cidDummy = 'k6lj87hj8';
-  // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
-
-
   constructor(private api: TestWeb, private router: Router) { 
    }
 
-  public tryLogin(): void {
+  public tryLogin(username: string, password: string, type: string): void {
 
-    let user = new User();
+    let user = new User();    
+    /*
+    // *** This code catch de true values in the UI, but the services take a Bad Request ***
+    user.username = username;
+    user.password = password;
+    user.type = this.selectedType;
+    // *** This code catch de true values in the UI, but the services take a Bad Request ***
+    */
 
-    // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
+    // *** HardCode by test, dont forget delete ***
     user.username = 'synergy';
     user.password = 'synergy123';
     user.type = 'V';
-    // ******************* DUMMY DATA - DELETE and use the objects in [(ngModel)] *******************
 
     this.api.login(user).subscribe(
         (loginResult) => {
@@ -46,17 +48,25 @@ export class AppComponent {
         }
     );
 
-    this.api.getTimeLine(this.cidDummy).subscribe(
-              time => {
-                  this.time = time;
-                  //alert('this.users=' + this.time);
-                  //alert('this.users.length=' + this.time.length);
-                  //alert('this.users[0].firstName=' + this.time[0].id);
-              }, //Bind to view
-                          err => {
-                      // Log errors if any
-                      console.log(err);
-                  });
+    if(this.cid){
+        this.api.getTimeLine(this.cid).subscribe(
+            time => {
+                this.time = time;
+                //alert('this.users=' + this.time);
+                //alert('this.users.length=' + this.time.length);
+                //alert('this.users[0].firstName=' + this.time[0].id);
+            }, //Bind to view
+                        err => {
+                    // Log errors if any
+                    console.log(err);
+                });
+    }
+  }
+
+  //event handler for the select element's change event
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedType = event.target.value;
   }
 
 }

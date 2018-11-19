@@ -4,7 +4,7 @@
       <h5 class="card-title">Inicio de sesión</h5>
       <div class="form-group">
           <div class="form-group">
-              <select id="type"  required>
+              <select id="type" (change)="selectChangeHandler($event)" required>
                   <option value="" selected>Seleccione</option>
                   <option value="V">V</option>
                   <option value="E">E</option>
@@ -32,7 +32,7 @@
       </div>
 </div>
   </div>
-        <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin()">Aceptar</button>
+        <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin(username, password, selectedType)">Aceptar</button>
   </div>
 
   <!-- Show Result -->
