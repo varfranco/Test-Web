@@ -40,7 +40,7 @@ export class AppComponent {
     this.api.login(user).subscribe(
         (loginResult) => {
             this.status = loginResult.status;
-            this.cid = loginResult.cid;            
+            this.cid = loginResult.cid;    
         },
         (error) => {
             console.log(error);
@@ -48,8 +48,11 @@ export class AppComponent {
         }
     );
 
-    if(this.cid){
-        this.api.getTimeLine(this.cid).subscribe(
+  }
+
+  public tryTime(cid: string): void {
+        //if(cid){
+            this.api.getTimeLine(cid).subscribe(
             time => {
                 this.time = time;
                 //alert('this.users=' + this.time);
@@ -60,13 +63,13 @@ export class AppComponent {
                     // Log errors if any
                     console.log(err);
                 });
+        //}
     }
-  }
 
-  //event handler for the select element's change event
-  selectChangeHandler (event: any) {
-    //update the ui
-    this.selectedType = event.target.value;
-  }
+    //event handler for the select element's change event
+    selectChangeHandler (event: any) {
+        //update the ui
+        this.selectedType = event.target.value;
+    }
 
 }

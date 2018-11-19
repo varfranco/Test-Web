@@ -1,6 +1,7 @@
 <div class="bg">
   <div class="card mt-5" style="float:left; margin: 5px 20px 0 20px;margin:left;width: 370px;top:22%;filter:alpha(opacity=80);-moz-opacity:.80;opacity:.80">
     <div class="card-body">
+      
       <h5 class="card-title">Inicio de sesión</h5>
       <div class="form-group">
           <div class="form-group">
@@ -30,44 +31,51 @@
       <div class="modal-footer">
         <button class="btn btn-primary callback-btn" data-dismiss="modal">Cerrar</button>
       </div>
-</div>
+  </div>
   </div>
         <button type="button" [disabled]="!myControl.valid" class="btn btn-primary" (click)="tryLogin(username, password, selectedType)">Aceptar</button>
   </div>
 
   <!-- Show Result -->
-  <div *ngIf="status">
+    <div *ngIf="status">
     <div class="card-body">
-      <h1>************* RESULTADOS POST ***************</h1>    
-        <table  class="table">
+      <h3>* RESULTADOS POST *</h3>    
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
               <th>Operation</th>
               <th>Status </th>
               <th>Cid</th>
           </tr>
+        </thead>  
           <tr>
               <td>POST</td>
               <td>{{status}}</td>
               <td>{{cid}}</td>
           </tr>
-      </table>
-      <h1>************* RESULTADOS GET ***************</h1>    
-      <table  class="table">
-          <tr>
-              <th>Operation</th>
-              <th>id </th>
-              <th>title</th>
-              <th>url</th>
-              <th>thumbnailUrl</th>
-          </tr>
-          <tr *ngFor="let t of time">
-              <td>GET</td>
-              <td>{{t.id}}</td>
-              <td>{{t.title}}</td>
-              <td>{{t.url}}</td>
-              <td>{{t.thumbnailUrl}}</td>
-          </tr>
-      </table>
-    </div>
-  </div>
+      </table>      
+      <button type="button" class="btn btn-primary" (click)="tryTime(cid)">Try for GET results</button>
+
+        <h3>* RESULTADOS GET *</h3>    
+          <table  class="table">
+              <thead class="thead-dark">
+              <tr>
+                  <th>Operation</th>
+                  <th>id </th>
+                  <th>title</th>
+                  <th>url</th>
+                  <th>thumbnailUrl</th>
+              </tr>
+            </thead>  
+            <tr *ngFor="let t of time">
+                  <td>GET</td>
+                  <td>{{t.id}}</td>
+                  <td>{{t.title}}</td>
+                  <td>{{t.url}}</td>
+                  <td>{{t.thumbnailUrl}}</td>
+              </tr>
+          </table>
+
+</div>
+</div>
 <div>
