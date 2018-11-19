@@ -1,0 +1,21 @@
+.bodyelement {
+    background-image: url("/assets/images/background.jpg"); 
+    background-color: aqua;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.login_form {
+    /*margin: auto;*/
+    /*width: 50%;*/
+    width: 500px;
+    margin: auto;
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    margin-top: 15%;
+}
+
+.title_text{
+    text-shadow: 0 0 3px #fff;
+}
